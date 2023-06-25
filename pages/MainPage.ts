@@ -13,7 +13,7 @@ export class MainPage extends BasePage {
     }
 
     async titleIsDisplayed() {
-        console.log('\'Welcome to the-internet\' title is displayed');
+        console.log('"Welcome to the-internet" title is displayed');
         await expect(this.expectedText).toHaveText('Welcome to the-internet');
     }
 

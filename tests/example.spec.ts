@@ -1,6 +1,5 @@
-import { test, expect } from '@playwright/test'
-// import test from '../fixtures/fixtures'
-import { MainPage } from '../pages/MainPage'
+import { test } from '@playwright/test';
+import { MainPage } from '../pages/MainPage';
 import { LoginPage } from '../pages/LoginPage';
 import { SecurePage } from '../pages/SecurePage';
 import { WindowsPage } from '../pages/WindowsPage';
@@ -23,7 +22,6 @@ test.describe('AQA_tests', async () => {
         await loginPage.clickLoginButton();
     
         await securePage.titleIsDisplayed();
-
     });
     
     test('the second scenario', async ({page}) => {
@@ -36,8 +34,7 @@ test.describe('AQA_tests', async () => {
         await mainPage.clickMultipleWindows();
 
         await windowsPage.titleIsDisplayed();
-        await windowsPage.clickClickHereButton();
-        await page.pause();
+        const newPage = windowsPage.clickClickHereButton();
+        await windowsPage.finalTextIsDisplayed(await newPage);
     });
 });
-
